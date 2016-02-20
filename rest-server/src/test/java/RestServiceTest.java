@@ -27,7 +27,7 @@ public class RestServiceTest {
         private RestTemplate restTemplate = new TestRestTemplate();
 
         @Test
-        public void contextLoads() {
+        public void testRestServer() {
             ResponseEntity<String> entity = this.restTemplate
                     .getForEntity("http://localhost:" + this.port + "/rest-service", String.class);
             assertEquals(HttpStatus.OK, entity.getStatusCode());
