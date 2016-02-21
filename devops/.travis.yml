@@ -1,0 +1,16 @@
+# build java
+language: java
+jdk:
+  - oraclejdk8
+
+# turn on docker service
+sudo: required
+services:
+  - docker
+
+# customize build phases for docker
+after_success:
+  - docker login -e="yuri.a.melnikov@gmail.com" -u="anubisdocker" -p="ft3-g7m-Ap9-zwa"
+  - docker build -t=anubisdocker/<PUT_IMAGE_NAME>:latest .
+  - docker push anubisdocker/<PUT_IMAGE_NAME>:latest
+
